@@ -91,10 +91,23 @@ def main(use_cache=True):
     print("\n=== STEP 3: Multinomial Logit Forecasting ===")
     mlogit_results = run_step3_multinomial(delta_df, games_df)
 
+    # Calculate and display accuracy for Multinomial Logit
+    mlogit_model, mlogit_pred = mlogit_results
+    mlogit_accuracy = (mlogit_pred["pred_class"] == mlogit_pred["actual_class"]).mean()
+    print(f"Multinomial Logit Accuracy: {mlogit_accuracy:.4f} ({mlogit_accuracy*100:.2f}%)")
+
     print("\n=== STEP 3.1: Ordered Probit Forecasting ===")
     probit_results = run_step3_ordered_probit(delta_df, games_df)
 
+    # Calculate and display accuracy for Ordered Probit
+    probit_model, probit_pred = probit_results
+    probit_accuracy = (probit_pred["pred_class"] == probit_pred["actual_class"]).mean()
+    print(f"Ordered Probit Accuracy: {probit_accuracy:.4f} ({probit_accuracy*100:.2f}%)")
+
     print("\n=== DONE — all objects loaded into Variable Explorer ===")
+    print(f"\nFinal Results:")
+    print(f"  Multinomial Logit: {mlogit_accuracy*100:.2f}% accuracy")
+    print(f"  Ordered Probit:    {probit_accuracy*100:.2f}% accuracy")
 
 
 if __name__ == "__main__":
