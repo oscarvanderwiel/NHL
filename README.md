@@ -47,7 +47,7 @@ This project analyzes NHL game data to predict match outcomes using:
 To run all three steps (data cleaning, ELO ratings, and forecasting models):
 
 ```bash
-python "main copy.py"
+python main.py
 ```
 
 This will:
@@ -62,30 +62,30 @@ You can also run each step independently:
 
 **Step 1 - Data Cleaning**:
 ```bash
-python "step1_clean_data copy.py"
+python step1_clean_data.py
 ```
 
 **Step 2 - ELO Ratings**:
 ```bash
-python "step2_ELO_ratings copy.py"
+python step2_ELO_ratings.py
 ```
 
 **Step 3 - Multinomial Logit**:
 ```bash
-python "step3_multinomial_logit copy.py"
+python step3_multinomial_logit.py
 ```
 
 **Step 3.1 - Ordered Probit**:
 ```bash
-python "step3_ordered_probit copy.py"
+python step3_ordered_probit.py
 ```
 
 ### Using the Cache
 
-The pipeline caches processed data to speed up subsequent runs. By default, `main copy.py` uses cached data if available.
+The pipeline caches processed data to speed up subsequent runs. By default, `main.py` uses cached data if available.
 
 To force a fresh run (ignoring cache):
-- Edit `main copy.py` line 101 and change:
+- Edit `main.py` line 101 and change:
   ```python
   main(use_cache=False)
   ```
@@ -111,16 +111,16 @@ The pipeline produces:
 
 ```
 NHL/
-├── main copy.py                      # Main pipeline orchestrator
-├── step1_clean_data copy.py          # Data cleaning
-├── step2_ELO_ratings copy.py         # ELO rating calculation
-├── step3_multinomial_logit copy.py   # Multinomial logit model
-├── step3_ordered_probit copy.py      # Ordered probit model
-├── gamedata.csv                      # Game data
-├── playergamedata.csv                # Player data (extracted from zip)
-├── playergamedata.zip                # Compressed player data
-├── requirements.txt                  # Python dependencies
-└── data/                             # Cached outputs (created on first run)
+├── main.py                      # Main pipeline orchestrator
+├── step1_clean_data.py          # Data cleaning
+├── step2_ELO_ratings.py         # ELO rating calculation
+├── step3_multinomial_logit.py   # Multinomial logit model
+├── step3_ordered_probit.py      # Ordered probit model
+├── gamedata.csv                 # Game data
+├── playergamedata.csv           # Player data (extracted from zip)
+├── playergamedata.zip           # Compressed player data
+├── requirements.txt             # Python dependencies
+└── data/                        # Cached outputs (created on first run)
 ```
 
 ## Troubleshooting
