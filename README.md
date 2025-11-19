@@ -80,6 +80,28 @@ python step3_multinomial_logit.py
 python step3_ordered_probit.py
 ```
 
+### Optimize Parameters with Grid Search
+
+To find the optimal K (ELO update rate) and HOME_ADV (home advantage) parameters:
+
+```bash
+python grid_search.py
+```
+
+This will:
+- Test different combinations of K and HOME_ADV values
+- Evaluate accuracy for each combination using both models
+- Display the best parameters and save results to `grid_search_results.csv`
+
+**Customize the grid search** by editing `grid_search.py`:
+```python
+k_values = [10, 15, 20, 25, 30, 40]           # K values to test
+home_adv_values = [0, 10, 25, 50, 75, 100]    # HOME_ADV values to test
+model_type = 'multinomial'                     # or 'probit'
+```
+
+**Note**: Grid search can take several minutes depending on the number of combinations and data size.
+
 ### Using the Cache
 
 The pipeline caches processed data to speed up subsequent runs. By default, `main.py` uses cached data if available.
@@ -112,6 +134,7 @@ The pipeline produces:
 ```
 NHL/
 ├── main.py                      # Main pipeline orchestrator
+├── grid_search.py               # Grid search for optimal parameters
 ├── step1_clean_data.py          # Data cleaning
 ├── step2_ELO_ratings.py         # ELO rating calculation
 ├── step3_multinomial_logit.py   # Multinomial logit model

@@ -28,8 +28,8 @@ HOME_ADV = 25   # ELO rating bonus for home team
 # STEP 2 — ELO MODEL
 # ============================================================
 
-def run_step2_ELO(player_df, games_df):
-    print("STEP 2 — Running ELO Rating Model")
+def run_step2_ELO(player_df, games_df, K=20, HOME_ADV=25):
+    print(f"STEP 2 — Running ELO Rating Model (K={K}, HOME_ADV={HOME_ADV})")
 
     # --------------------------------------------------------
     # Prepare game list in chronological order

@@ -23,6 +23,9 @@ ENV/
 # Cached data outputs
 data/
 
+# Grid search results
+grid_search_results.csv
+
 # Jupyter
 .ipynb_checkpoints/
 *.ipynb
