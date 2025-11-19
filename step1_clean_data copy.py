@@ -20,8 +20,8 @@ import pandas as pd
 import numpy as np
 
 
-def load_and_clean_data(player_path="C:/Users/660614ow/Downloads/playergamedata.csv",
-                        games_path="C:/Users/660614ow/Downloads/gamedata.csv"):
+def load_and_clean_data(player_path="playergamedata.csv",
+                        games_path="gamedata.csv"):
     """
     Load and clean raw player/game data.
 
